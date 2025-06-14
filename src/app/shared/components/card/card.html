@@ -1,0 +1,11 @@
+<mat-card class="card" appearance="outlined">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>{{ person()?.name }}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="{{ person()?.image }}" style="width: 200px;">
+  <mat-card-content>
+    <p>{{ person()?.status }}</p>
+    <p>{{ person()?.species }}</p>
+  </mat-card-content>
+</mat-card>
