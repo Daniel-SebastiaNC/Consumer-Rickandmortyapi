@@ -1,2 +1,8 @@
 <h1>Home</h1>
+<main class="content-container">
+  @for (person of persons; track person.id) {
+    <app-card [person]="person"></app-card>
+  }
+</main>
+
 
