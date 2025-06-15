@@ -19,7 +19,7 @@ export class Home implements OnInit {
 
   ngOnInit(): void {
     this.apiService.getAll().subscribe( (data) => {
-      this.persons = data.results;
+      this.persons = data;
     });
   }
 
