@@ -10,8 +10,8 @@ export class ApiService {
 
    http = inject(HttpClient);
 
-  getAll(): Observable<Person[]> {
-    return this.http.get<any>('https://rickandmortyapi.com/api/character/?page=1').pipe(
+  getAll(page: number): Observable<Person[]> {
+    return this.http.get<any>('https://rickandmortyapi.com/api/character/?page=' + page).pipe(
       map(data => ({
         results: data.results
       }.results))
