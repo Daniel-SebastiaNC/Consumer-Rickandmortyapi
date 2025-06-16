@@ -2,11 +2,13 @@ import { ApiService } from './../../api/api-service';
 import { Component, inject, OnInit } from '@angular/core';
 import { Card } from '../../shared/components/card/card';
 import { Person } from '../../shared/interfaces/person.interface';
+import { Paginator } from '../../shared/components/paginator/paginator';
+import { PageEvent } from '@angular/material/paginator';
 
 
 @Component({
   selector: 'app-home',
-  imports: [Card],
+  imports: [Card, Paginator],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
@@ -18,7 +20,15 @@ export class Home implements OnInit {
 
 
   ngOnInit(): void {
-    this.apiService.getAll().subscribe( (data) => {
+    this.getAll(1);
+  }
+
+  onChangePage(e: PageEvent) {
+    this.getAll(e.pageIndex + 1)
+  }
+
+  getAll(page: number) {
+    this.apiService.getAll(page).subscribe( (data) => {
       this.persons = data;
     });
   }
